@@ -26,21 +26,6 @@ async def start_cmd(message: types.Message) -> None:
 async def history_question(callback: CallbackQuery):
     await callback.message.answer('Пока в разработке...')
 
-# @user_pr_router.callback_query(F.data == 'history_question')
-# async def history_question(callback: CallbackQuery, state: FSMContext):
-#     await state.set_state(HistoryQuestionState.question)
-#     await callback.message.edit_text("Задайте ваш вопрос")
-
-
-# @user_pr_router.message(HistoryQuestionState.question)
-# async def history_question(message: types.Message, state: FSMContext, bot: Bot):
-#     await message.answer("Спасибо за ваш вопрос! В ближайшее время наши историки вам помогут")
-
-#     kb = await reply.for_question(message.from_user.id)
-#     await state.clear()
-
-#     await bot.send_message(chat_id=-4281410972, text=message.text)
-#     await bot.send_message(chat_id=-4281410972, text='Нажмите на кнопку ниже если вы готовы ответить на данный вопрос.', reply_markup=kb)
 
 
 @user_pr_router.message(Command("about"))
